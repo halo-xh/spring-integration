@@ -15,7 +15,7 @@ import java.io.File;
 /**
  * author  Xiao Hong
  * date  2020/12/31 0:07
- * description
+ * description java way
  */
 @Configuration
 public class FileWriteIntegrationConfig {
@@ -30,7 +30,7 @@ public class FileWriteIntegrationConfig {
     @ServiceActivator(inputChannel = "fileWriterChannel")
     public FileWritingMessageHandler fileWritingMessageHandler() {
         FileWritingMessageHandler fileWritingMessageHandler =
-                new FileWritingMessageHandler(new File("/tmp/java/files"));
+                new FileWritingMessageHandler(new File("./java/files"));
         //FileWritingMessageHandler bean的一个独特之处在于它调用了setExpectReply(false)方法，
         // 通过这个方法能够告知服务激活器（serviceactivator）不要期望会有答复通道（replychannel，通过这样的通道，我们可以将某个值返回到流中的上游组件）。
         // 如果我们不调用setExpectReply()，文件写入bean的默认值是true。

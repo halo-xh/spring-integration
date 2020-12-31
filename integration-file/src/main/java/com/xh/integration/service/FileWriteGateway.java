@@ -9,7 +9,7 @@ import org.springframework.messaging.handler.annotation.Header;
  * MessagingGateway的defaultRequestChannel属性表明接口方法调用时所返回的消息要发送至给定的消息通道（message channel）。
  * 在本例中，我们声明调用writeToFile()所形成的消息应该发送至名为textInChannel的通道中。
  */
-@MessagingGateway(defaultReplyChannel = "textInChannel")
+@MessagingGateway(defaultRequestChannel = "textInChannel")
 public interface FileWriteGateway {
 
     /**

@@ -5,21 +5,22 @@
        xmlns:int="http://www.springframework.org/schema/integration"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/integration
+       http://www.springframework.org/schema/integration/spring-integration.xsd
        http://www.springframework.org/schema/integration/file
        http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
 
     <!--XML 配置 -->
-    <int:channel id="textInCHannel"/>
+    <int:channel id="textInChannel"/>
     <int:channel id="fileWriteChannel"/>
-
     <int:transformer id="upperCase"
-                     input-channel="textInCHannel"
+                     input-channel="textInChannel"
                      output-channel="fileWriteChannel"
                      expression="payload.toUpperCase()"/>
 
     <int-file:outbound-channel-adapter id="write"
                                        channel="fileWriteChannel"
-                                       directory="/temp/xml/files"
+                                       directory="./xml/file"
                                        mode="APPEND"
                                        append-new-line="true"/> <!-- 将文本写到文件 -->
 

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
  * description
  */
 
-@Configuration
-@ImportResource("classpath:file-integration.xml")
+//@Configuration
+//@ImportResource("classpath:file-integration.xml")
 public class XMLFileWriteIntegrationConfig {
 }
