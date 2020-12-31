@@ -30,7 +30,7 @@ public class DSLFileWriteIntegrationConfig {
         return IntegrationFlows
                 .from(MessageChannels.direct("textInChannel"))
                 .<String,String>transform(String::toUpperCase)
-                .channel(MessageChannels.direct("fileWriteChannel"))//这里可以不显示声明 如果channel 不存在 spring integration会自动创建
+                .channel(MessageChannels.direct("fileWriteChannel")) //这里可以不显示声明 如果channel 不存在 spring integration会自动创建
                 .filter(myFilter)
                 .handle(Files.outboundAdapter(new File("./dsl/files"))
                 .fileExistsMode(FileExistsMode.APPEND)
