@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ImportResource;
 /**
  * author  Xiao Hong
  * date  2020/12/31 0:05
- * description
+ *  XML
  */
 
 //@Configuration

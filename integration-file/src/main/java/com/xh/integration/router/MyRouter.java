@@ -7,6 +7,7 @@ import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.router.AbstractMessageRouter;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessageHeaders;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -29,8 +30,9 @@ public class MyRouter extends AbstractMessageRouter {
 
     @Override
     protected Collection<MessageChannel> determineTargetChannels(Message<?> message) {
-        Object payload = message.getPayload();
-        if (((String) payload).isEmpty()) {
+        MessageHeaders headers = message.getHeaders();
+        Object type = headers.get("type");
+        if ("queue".equals(type)) {
             return Collections.singleton(queueChannel);
         } else {
             return Collections.singleton(publishSubscribeChannel);

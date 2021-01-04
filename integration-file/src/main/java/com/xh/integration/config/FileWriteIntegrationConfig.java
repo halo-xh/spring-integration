@@ -15,7 +15,7 @@ import java.io.File;
 /**
  * author  Xiao Hong
  * date  2020/12/31 0:07
- * description java way
+ * java
  */
 @Configuration
 public class FileWriteIntegrationConfig {

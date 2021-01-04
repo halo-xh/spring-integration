@@ -16,7 +16,7 @@ import java.io.File;
 /**
  * author  Xiao Hong
  * date  2020/12/31 0:16
- * description DSL way.
+ * DSL .
  */
 
 //@Configuration
@@ -26,15 +26,15 @@ public class DSLFileWriteIntegrationConfig {
     private MyFilter myFilter;
 
     @Bean
-    public IntegrationFlow fileWriteFlow(){
+    public IntegrationFlow fileWriteFlow() {
         return IntegrationFlows
                 .from(MessageChannels.direct("textInChannel"))
-                .<String,String>transform(String::toUpperCase)
+                .<String, String>transform(String::toUpperCase)
                 .channel(MessageChannels.direct("fileWriteChannel")) //这里可以不显示声明 如果channel 不存在 spring integration会自动创建
                 .filter(myFilter)
                 .handle(Files.outboundAdapter(new File("./dsl/files"))
-                .fileExistsMode(FileExistsMode.APPEND)
-                .appendNewLine(true))
+                        .fileExistsMode(FileExistsMode.APPEND)
+                        .appendNewLine(true))
                 .get();
     }
 }
