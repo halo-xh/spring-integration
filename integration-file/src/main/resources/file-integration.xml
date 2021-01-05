@@ -13,7 +13,7 @@
     <!--XML 配置 -->
     <int:channel id="textInChannel"/>
     <int:channel id="fileWriteChannel"/>
-    <int:transformer id="upperCase"
+    <int:com.xh.transformer id="upperCase"
                      input-channel="textInChannel"
                      output-channel="fileWriteChannel"
                      expression="payload.toUpperCase()"/>

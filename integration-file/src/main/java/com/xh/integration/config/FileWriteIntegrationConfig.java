@@ -32,7 +32,7 @@ public class FileWriteIntegrationConfig {
         FileWritingMessageHandler fileWritingMessageHandler =
                 new FileWritingMessageHandler(new File("./java/files"));
         //FileWritingMessageHandler bean的一个独特之处在于它调用了setExpectReply(false)方法，
-        // 通过这个方法能够告知服务激活器（serviceactivator）不要期望会有答复通道（replychannel，通过这样的通道，我们可以将某个值返回到流中的上游组件）。
+        // 通过这个方法能够告知服务激活器（com.xh.serviceactivator）不要期望会有答复通道（replychannel，通过这样的通道，我们可以将某个值返回到流中的上游组件）。
         // 如果我们不调用setExpectReply()，文件写入bean的默认值是true。
         // 尽管管道的功能和预期一样，但是在日志中会看到一些错误日志，提示我们没有设置答复通道。
         fileWritingMessageHandler.setExpectReply(false);
